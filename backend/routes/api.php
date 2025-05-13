@@ -2,6 +2,8 @@
 
 use App\Http\Controllers\Api\MeController;
 use App\Http\Controllers\Api\CompanyController;
+use App\Http\Controllers\Api\DeadlineController;
+use App\Http\Controllers\Api\MyPageController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -20,7 +22,22 @@ Route::middleware(['auth:sanctum'])->group(function () {
             Route::delete('/{company}', [CompanyController::class, 'destroy'])->name('destroy');
         }
     );
-    // Route::apiResource('companies', 'App\Http\Controllers\Api\CompanyController');
-    // Route::apiResource('my_pages', 'App\Http\Controllers\Api\MyPageController');
-    // Route::apiResource('deadlines', 'App\Http\Controllers\Api\DeadlineController');
+    Route::group([
+        'prefix' => '/deadline',
+        'as' => 'deadline.'], function () {
+            Route::get('/', [DeadlineController::class, 'index'])->name('index');
+            Route::post('/', [DeadlineController::class, 'store'])->name('store');
+            Route::put('/{deadline}', [DeadlineController::class, 'update'])->name('update');
+            Route::delete('/{deadline}', [DeadlineController::class, 'destroy'])->name('destroy');
+        }
+    );
+    Route::group([
+        'prefix' => '/mypage',
+        'as' => 'mypage.'], function () {
+            Route::get('/', [MyPageController::class, 'index'])->name('index');
+            Route::post('/', [MyPageController::class, 'store'])->name('store');
+            Route::put('/{mypage}', [MyPageController::class, 'update'])->name('update');
+            Route::delete('/{mypage}', [MyPageController::class, 'destroy'])->name('destroy');
+        }
+    );
 });

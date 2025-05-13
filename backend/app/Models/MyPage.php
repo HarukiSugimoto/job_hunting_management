@@ -7,9 +7,10 @@ use Illuminate\Database\Eloquent\Model;
 class MyPage extends Model
 {
     protected $fillable = [
-        'date',
-        'type',
+        'link',
+        'login_id',
         'status',
+        'pritority',
     ];
     public function company()
     {

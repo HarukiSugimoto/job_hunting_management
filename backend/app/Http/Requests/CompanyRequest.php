@@ -2,11 +2,7 @@
 
 namespace App\Http\Requests;
 
-use App\Rules\Kana;
-use App\Rules\PhoneNumber;
-use App\Rules\RoomBelongsToBuilding;
 use Illuminate\Foundation\Http\FormRequest;
-use Illuminate\Validation\Rule;
 
 class CompanyRequest extends FormRequest
 {

@@ -2,13 +2,9 @@
 
 namespace App\Http\Requests;
 
-use App\Rules\Kana;
-use App\Rules\PhoneNumber;
-use App\Rules\RoomBelongsToBuilding;
 use Illuminate\Foundation\Http\FormRequest;
-use Illuminate\Validation\Rule;
 
-class DeadlineRequest extends FormRequest
+class MyPageRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -26,9 +22,10 @@ class DeadlineRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'date' => ['required', 'date'],
-            'type' => ['required', 'integer'],
+            'link' => ['required', 'string'],
+            'login_id' => ['required', 'string'],
             'status' => ['required', 'integer'],
+            'pritority' => ['required', 'integer'],
             'company_id' => ['required', 'integer'],
             'user_id' => ['required', 'integer'],
         ];
@@ -37,18 +34,14 @@ class DeadlineRequest extends FormRequest
     public function attributes()
     {
         return [
-            'date' => '締切日',
-            'type' => '種類',
-            'status' => 'ステータス',
+            'name' => '企業名',
         ];
     }
 
     public function messages ()
     {
         return [
-            'date.required' => ':attributeは必須項目です',
-            'type.required' => ':attributeは必須項目です',
-            'status.required' => ':attributeは必須項目です',
+            'name.required_if' => ':attributeは必須項目です',
         ];
     }
 }

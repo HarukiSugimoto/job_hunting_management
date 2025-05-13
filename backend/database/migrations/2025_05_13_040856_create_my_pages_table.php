@@ -14,6 +14,7 @@ return new class extends Migration
         Schema::create('my_pages', function (Blueprint $table) {
             $table->id();
             $table->string('link');
+            $table->string('login_id');
             $table->integer('status');
             $table->integer('pritority');
             $table->foreignId('company_id')->constrained('companies');
