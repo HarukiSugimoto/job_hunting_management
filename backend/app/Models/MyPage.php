@@ -9,8 +9,8 @@ class MyPage extends Model
     protected $fillable = [
         'link',
         'login_id',
-        'status',
         'pritority',
+        'type'
     ];
     public function company()
     {

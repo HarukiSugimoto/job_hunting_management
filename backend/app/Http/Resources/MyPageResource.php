@@ -18,8 +18,8 @@ class MyPageResource extends JsonResource
             'id' => $this->id,
             'link' => $this->link,
             'login_id' => $this->login_id,
-            'status' => $this->status,
             'priority' => $this->priority,
+            'type' => $this->type,
             'company' => new CompanyResource($this->whenLoaded('company')),
         ];
     }

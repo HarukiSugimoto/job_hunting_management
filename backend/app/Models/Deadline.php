@@ -10,15 +10,12 @@ class Deadline extends Model
         'date',
         'type',
         'status',
+        'result',
     ];
 
-    public function company()
+    public function myPage()
     {
-        return $this->belongsTo(Company::class);
+        return $this->belongsTo(MyPage::class);
     }
 
-    public function user()
-    {
-        return $this->belongsTo(User::class);
-    }
 }

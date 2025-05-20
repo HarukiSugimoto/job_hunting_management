@@ -15,9 +15,12 @@ class DeadlineResource extends JsonResource
     public function toArray(Request $request): array
     {
         return [
+            'id' => $this->id,
             'date' => $this->date,
             'type' => $this->type,
             'status' => $this->status,
+            'result' => $this->result,
+            'myPage' => new MyPageResource($this->whenLoaded('myPage')),
         ];
     }
 }
