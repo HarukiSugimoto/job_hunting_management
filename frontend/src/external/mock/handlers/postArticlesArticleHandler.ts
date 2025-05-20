@@ -5,7 +5,7 @@ import { mockArticleResource } from '@/external/mock/components/ArticleResource'
 const path = '/api/articles/:article' as const;
 
 export const postArticlesArticleHandler = http.post<
-  { article: string },
+  { company: string },
   AdminApiPaths['/articles/{article}']['post']['requestBody'],
   AdminApiPaths['/articles/{article}']['post']['responses']['200']['content']['application/json']
 >(path, ({ params }) =>

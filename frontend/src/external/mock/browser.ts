@@ -10,6 +10,7 @@ import { postAuthLoginHandler } from '@/external/mock/handlers/postAuthLoginHand
 import { getEnv } from '@/lib/getEnv';
 import { getCompanysHandler } from './handlers/getCompanysHandler';
 import { getMyPagesHandler } from './handlers/getMyPagesHandler';
+import { postCompanyHandler } from './handlers/postCompanyHandler';
 
 const apiDelay = Number(getEnv('API_REQUEST_DELAY_MS'));
 
@@ -31,7 +32,9 @@ const handlers = [
   postAuthLoginHandler,
   getAuthLogoutHandler,
   getCompanysHandler,
-  getMyPagesHandler
+  postCompanyHandler,
+  getMyPagesHandler,
+
 ];
 
 export const worker = setupWorker(...handlers);
