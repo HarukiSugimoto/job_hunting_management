@@ -29,8 +29,9 @@ class DeadlineRequest extends FormRequest
             'date' => ['required', 'date'],
             'type' => ['required', 'integer'],
             'status' => ['required', 'integer'],
+            'result' => ['required', 'integer'],
             'company_id' => ['required', 'integer'],
-            'user_id' => ['required', 'integer'],
+            'my_page_id' => ['required', 'integer'],
         ];
     }
 
@@ -39,7 +40,8 @@ class DeadlineRequest extends FormRequest
         return [
             'date' => '締切日',
             'type' => '種類',
-            'status' => 'ステータス',
+            'status' => '進捗状況',
+            'result' => '結果',
         ];
     }
 
@@ -49,6 +51,7 @@ class DeadlineRequest extends FormRequest
             'date.required' => ':attributeは必須項目です',
             'type.required' => ':attributeは必須項目です',
             'status.required' => ':attributeは必須項目です',
+            'result.required' => ':attributeは必須項目です',
         ];
     }
 }
