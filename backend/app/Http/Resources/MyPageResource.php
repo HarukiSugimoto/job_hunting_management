@@ -15,10 +15,12 @@ class MyPageResource extends JsonResource
     public function toArray(Request $request): array
     {
         return [
+            'id' => $this->id,
             'link' => $this->link,
             'login_id' => $this->login_id,
             'status' => $this->status,
             'priority' => $this->priority,
+            'company' => new CompanyResource($this->whenLoaded('company')),
         ];
     }
 }
