@@ -30,6 +30,12 @@ class MyPageController extends Controller
         return MyPageResource::make($myPage);
     }
 
+    public function show(MyPage $myPage)
+    {
+        // マイページ情報を取得
+        return MyPageResource::make($myPage);
+    }
+
     public function update(MyPageRequest $request, MyPage $myPage)
     {
         // マイページ情報を更新

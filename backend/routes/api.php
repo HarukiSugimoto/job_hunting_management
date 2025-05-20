@@ -18,6 +18,7 @@ Route::middleware(['auth:sanctum'])->group(function () {
         'as' => 'company.'], function () {
             Route::get('/', [CompanyController::class, 'index'])->name('index');
             Route::post('/', [CompanyController::class, 'store'])->name('store');
+            Route::get('/{company}', [CompanyController::class, 'show'])->name('show');
             Route::put('/{company}', [CompanyController::class, 'update'])->name('update');
             Route::delete('/{company}', [CompanyController::class, 'destroy'])->name('destroy');
         }
@@ -27,6 +28,7 @@ Route::middleware(['auth:sanctum'])->group(function () {
         'as' => 'deadline.'], function () {
             Route::get('/', [DeadlineController::class, 'index'])->name('index');
             Route::post('/', [DeadlineController::class, 'store'])->name('store');
+            Route::get('/{deadline}', [DeadlineController::class, 'show'])->name('show');
             Route::put('/{deadline}', [DeadlineController::class, 'update'])->name('update');
             Route::delete('/{deadline}', [DeadlineController::class, 'destroy'])->name('destroy');
         }
@@ -36,6 +38,7 @@ Route::middleware(['auth:sanctum'])->group(function () {
         'as' => 'mypage.'], function () {
             Route::get('/', [MyPageController::class, 'index'])->name('index');
             Route::post('/', [MyPageController::class, 'store'])->name('store');
+            Route::get('/{mypage}', [MyPageController::class, 'show'])->name('show');
             Route::put('/{mypage}', [MyPageController::class, 'update'])->name('update');
             Route::delete('/{mypage}', [MyPageController::class, 'destroy'])->name('destroy');
         }

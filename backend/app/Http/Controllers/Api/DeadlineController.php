@@ -28,6 +28,11 @@ class DeadlineController extends Controller
         return DeadlineResource::make($deadline);
     }
 
+    public function show(Deadline $deadline)
+    {
+        return DeadlineResource::make($deadline);
+    }
+
     public function update(DeadlineRequest $request, Deadline $deadline)
     {
         $deadline->update($request->all());

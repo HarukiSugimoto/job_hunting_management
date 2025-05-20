@@ -35,6 +35,17 @@ class CompanyController extends Controller
         $company = Company::create($request->all());
         return CompanyResource::make($company);
     }
+    /**
+     * CompanyShow
+     * 
+     * 企業情報を管理
+     * 
+     * GET /api/company/{id}
+     */
+    public function show(Company $company)
+    {
+        return CompanyResource::make($company);
+    }
 
     /**
      * CompanyUpdate
