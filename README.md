@@ -46,6 +46,37 @@
     npm run dev
     ```
 
-## ライセンス
+## ER
+```mermaid
+erDiagram
+    User{
+        string id PK
+        string name
+        string password
+    }
+    Company{
+        string id PK 
+        string name "会社名"
+    }
+    MyPage{
+        string id PK
+        string company_id FK
+        string user_id FK
+        string login_id
+        string link
+        string status
+        string priority
+    }
+    Deadline{
+        string id PK
+        string mypage_id FK
+        string type
+        date date
+        string status
+    }
 
-このプロジェクトは個人の開発および学習目的で作成されています。
+    User ||--|{ MyPage: ""
+    Company ||--|| MyPage: ""
+    MyPage ||--o{ Deadline: ""
+
+```
