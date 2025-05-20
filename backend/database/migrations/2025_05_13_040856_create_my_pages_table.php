@@ -16,7 +16,7 @@ return new class extends Migration
             $table->string('link');
             $table->string('login_id');
             $table->string('type');
-            $table->integer('pritority');
+            $table->integer('priority');
             $table->foreignId('company_id')->constrained('companies');
             $table->foreignId('user_id')->constrained('users');
             $table->timestamps();
