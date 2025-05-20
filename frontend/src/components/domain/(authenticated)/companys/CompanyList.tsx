@@ -4,12 +4,16 @@ import type React from 'react';
 import { AdminApiComponents } from '@/external';
 import { SLDataList } from '@/sakura-like-ui/components/mui/SLDataList';
 import type { SLDataTableColumn } from '@/sakura-like-ui/components/mui/SLDataTable';
+import { Link } from 'react-router-dom';
 
 const columns: SLDataTableColumn<AdminApiComponents['schemas']['CompanyResource']>[] = [
   {
     id: 'id',
     label: 'ID',
-    render: (company) => company.id,
+    render: (company) => 
+    <>
+      <Link to={`/companys/${company.id}/edit`}>{company.id}</Link>
+    </>,
     sortable: true,
     mobileLabel: 'ID',
     mobileOrder: 2,

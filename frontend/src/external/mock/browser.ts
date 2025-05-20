@@ -11,6 +11,8 @@ import { getEnv } from '@/lib/getEnv';
 import { getCompanysHandler } from './handlers/getCompanysHandler';
 import { getMyPagesHandler } from './handlers/getMyPagesHandler';
 import { postCompanyHandler } from './handlers/postCompanyHandler';
+import { getCompanysDetailHandler } from './handlers/getCompanysDetailHandler';
+import { putCompanysHandler } from './handlers/putCompanysHandler';
 
 const apiDelay = Number(getEnv('API_REQUEST_DELAY_MS'));
 
@@ -32,7 +34,9 @@ const handlers = [
   postAuthLoginHandler,
   getAuthLogoutHandler,
   getCompanysHandler,
+  getCompanysDetailHandler,
   postCompanyHandler,
+  putCompanysHandler,
   getMyPagesHandler,
 
 ];

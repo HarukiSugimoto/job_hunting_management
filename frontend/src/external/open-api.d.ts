@@ -39,7 +39,13 @@ export interface paths {
             path?: never;
             cookie?: never;
         };
-        get?: never;
+        /**
+         * CompanyShow
+         * @description 企業情報を管理
+         *
+         *     GET /api/company/{id}
+         */
+        get: operations["company.show"];
         /**
          * CompanyUpdate
          * @description 企業情報を管理
@@ -87,7 +93,7 @@ export interface paths {
             path?: never;
             cookie?: never;
         };
-        get?: never;
+        get: operations["deadline.show"];
         put: operations["deadline.update"];
         post?: never;
         delete: operations["deadline.destroy"];
@@ -140,7 +146,7 @@ export interface paths {
             path?: never;
             cookie?: never;
         };
-        get?: never;
+        get: operations["mypage.show"];
         put: operations["mypage.update"];
         post?: never;
         delete: operations["mypage.destroy"];
@@ -319,6 +325,33 @@ export interface operations {
             422: components["responses"]["ValidationException"];
         };
     };
+    "company.show": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                /** @description The company ID */
+                company: number;
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description `CompanyResource` */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        data: components["schemas"]["CompanyResource"];
+                    };
+                };
+            };
+            401: components["responses"]["AuthenticationException"];
+            404: components["responses"]["ModelNotFoundException"];
+        };
+    };
     "company.update": {
         parameters: {
             query?: never;
@@ -425,6 +458,33 @@ export interface operations {
             401: components["responses"]["AuthenticationException"];
             403: components["responses"]["AuthorizationException"];
             422: components["responses"]["ValidationException"];
+        };
+    };
+    "deadline.show": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                /** @description The deadline ID */
+                deadline: number;
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description `DeadlineResource` */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        data: components["schemas"]["DeadlineResource"];
+                    };
+                };
+            };
+            401: components["responses"]["AuthenticationException"];
+            404: components["responses"]["ModelNotFoundException"];
         };
     };
     "deadline.update": {
@@ -556,6 +616,35 @@ export interface operations {
             401: components["responses"]["AuthenticationException"];
             403: components["responses"]["AuthorizationException"];
             422: components["responses"]["ValidationException"];
+        };
+    };
+    "mypage.show": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                mypage: string;
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description マイページ情報を取得
+             *
+             *
+             *
+             *     `MyPageResource` */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        data: components["schemas"]["MyPageResource"];
+                    };
+                };
+            };
+            401: components["responses"]["AuthenticationException"];
         };
     };
     "mypage.update": {

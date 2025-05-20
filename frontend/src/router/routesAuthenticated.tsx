@@ -11,6 +11,7 @@ import { CompanysPage } from '@/app/(authenticated)/companys/page';
 import { MyPageList } from '@/components/domain/(authenticated)/mypages/MyPageList';
 import { MyPagesPage } from '@/app/(authenticated)/mypages/page';
 import { CompanyNewPage } from '@/app/(authenticated)/companys/new/page';
+import { CompanyEditPage } from '@/app/(authenticated)/companys/edit/page';
 
 /**
  * ログイン認証が必要なページのルーティング情報
@@ -48,7 +49,11 @@ export const routesAuthenticated: RouteObject = {
         {
           path: 'new',
           element: <CompanyNewPage />,
-        }
+        },
+        { 
+          path: ':companyId/edit', 
+          element: <CompanyEditPage /> 
+        },
       ]
     },
     {
