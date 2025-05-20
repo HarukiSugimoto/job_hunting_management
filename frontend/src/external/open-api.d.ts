@@ -168,20 +168,24 @@ export interface components {
             date: string;
             type: number;
             status: number;
+            result: number;
             company_id: number;
-            user_id: number;
+            my_page_id: number;
         };
         /** DeadlineResource */
         DeadlineResource: {
+            id: number;
             date: string;
-            type: number;
+            type: string;
             status: number;
+            result: number;
+            myPage?: components["schemas"]["MyPageResource"];
         };
         /** MyPageRequest */
         MyPageRequest: {
             link: string;
             login_id: string;
-            status: number;
+            type: string;
             pritority: number;
             company_id: number;
             user_id: number;
@@ -191,8 +195,8 @@ export interface components {
             id: number;
             link: string;
             login_id: string;
-            status: number;
-            priority: string;
+            priority: number;
+            type: string;
             company?: components["schemas"]["CompanyResource"];
         };
         /** UserResource */
