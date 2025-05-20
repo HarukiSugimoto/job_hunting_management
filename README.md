@@ -62,21 +62,22 @@ erDiagram
         string id PK
         string company_id FK
         string user_id FK
-        string login_id
-        string link
-        string status
-        string priority
+        string type "職種"
+        string login_id "ログインID"
+        string link "MyPageリンク"
+        int priority "重要度"
     }
     Deadline{
         string id PK
         string mypage_id FK
-        string type
-        date date
-        string status
+        string type "種類"
+        date date "締切"
+        int status "進捗"
+        int result "合否"
     }
 
     User ||--|{ MyPage: ""
-    Company ||--|| MyPage: ""
+    Company ||--o{ MyPage: ""
     MyPage ||--o{ Deadline: ""
 
 ```
