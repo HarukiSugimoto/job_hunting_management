@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
             $table->string('link');
             $table->string('login_id');
-            $table->integer('status');
+            $table->string('type');
             $table->integer('pritority');
             $table->foreignId('company_id')->constrained('companies');
             $table->foreignId('user_id')->constrained('users');

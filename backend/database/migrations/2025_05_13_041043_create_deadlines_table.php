@@ -13,9 +13,11 @@ return new class extends Migration
     {
         Schema::create('deadlines', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('my_page_id')->constrained('my_pages');
             $table->date('date');
-            $table->integer('type');
+            $table->string('type');
             $table->integer('status');
+            $table->integer('result');
             $table->timestamps();
         });
     }

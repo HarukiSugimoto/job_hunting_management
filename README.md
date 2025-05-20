@@ -69,7 +69,7 @@ erDiagram
     }
     Deadline{
         string id PK
-        string mypage_id FK
+        string my_page_id FK
         string type "種類"
         date date "締切"
         int status "進捗"
