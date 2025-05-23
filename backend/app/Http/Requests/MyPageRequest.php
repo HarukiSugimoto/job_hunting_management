@@ -25,7 +25,7 @@ class MyPageRequest extends FormRequest
             'link' => ['required', 'string'],
             'login_id' => ['required', 'string'],
             'type' => ['required', 'string'],
-            'pritority' => ['required', 'integer'],
+            'priority' => ['required', 'integer'],
             'company_id' => ['required', 'integer'],
             'user_id' => ['required', 'integer'],
         ];
@@ -37,7 +37,7 @@ class MyPageRequest extends FormRequest
             'link' => 'MyPageのリンク',
             'login_id' => 'MyPageのログインID',
             'type' => '職種',
-            'pritority' => '優先度',
+            'priority' => '優先度',
         ];
     }
 
