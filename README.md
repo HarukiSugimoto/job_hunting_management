@@ -76,7 +76,7 @@ erDiagram
         int result "合否"
     }
 
-    User ||--|{ MyPage: ""
+    User ||--o{ MyPage: ""
     Company ||--o{ MyPage: ""
     MyPage ||--o{ Deadline: ""
 
