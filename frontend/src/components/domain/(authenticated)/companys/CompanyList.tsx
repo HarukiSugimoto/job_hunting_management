@@ -7,6 +7,7 @@ import type { SLDataTableColumn } from '@/sakura-like-ui/components/mui/SLDataTa
 import { Link } from 'react-router-dom';
 import { DeleteConfirmDialog } from '@/components/common/DeleteConfirmDialog';
 import { useCompanyDelete } from '@/hooks/domain/(authenticated)/company/useCompanyDelete';
+import { useCustomConfirm } from '@/sakura-like-ui/hooks/CustomConfirm';
 
 
 interface CompanyListProps {
@@ -16,24 +17,24 @@ interface CompanyListProps {
 }
 
 export const CompanyList: React.FC<CompanyListProps> = (props) => {
-  const [selectedCompany, setSelectedCompany] = React.useState<AdminApiComponents['schemas']['CompanyResource'] | null>(null);
-  const [open, setOpen] = React.useState(false);
+  const { customConfirm } = useCustomConfirm();
   const { deleteCompany } = useCompanyDelete();
 
-  const handleDeleteClick = (company: AdminApiComponents['schemas']['CompanyResource']) => {
-    if (document.activeElement instanceof HTMLElement) {
-      document.activeElement.blur();
+  const deleteConfirm = async (company: AdminApiComponents['schemas']['CompanyResource']) => {
+    if (
+      await customConfirm({
+        title: '削除確認',
+        description: '本当に削除しますか？',
+        positiveButtonLabel: '削除',
+        negativeButtonLabel: 'キャンセル',
+      })
+    ) {
+      deleteCompany(company.id);
+    } else {
+      window.alert('Cancel');
     }
-    setSelectedCompany(company);
-    setOpen(true);
   };
 
-  const handleConfirmDelete = async () => {
-    if (selectedCompany) {
-      await deleteCompany(selectedCompany.id);
-      setOpen(false);
-    }
-  };
   const columns: SLDataTableColumn<AdminApiComponents['schemas']['CompanyResource']>[] = [
     {
       id: 'id',
@@ -54,7 +55,7 @@ export const CompanyList: React.FC<CompanyListProps> = (props) => {
       id: 'actions',
       label: '削除',
       render: (company) => (
-        <Button color="error" onClick={() => handleDeleteClick(company)}>
+        <Button color="error" onClick={() => deleteConfirm(company)}>
           削除
         </Button>
       ),
@@ -71,13 +72,6 @@ export const CompanyList: React.FC<CompanyListProps> = (props) => {
           totalCount={props.totalCount ?? 0}
         />
       </Card>
-      <DeleteConfirmDialog
-        open={open}
-        onClose={() => setOpen(false)}
-        onConfirm={handleConfirmDelete}
-        title="会社を削除しますか？"
-        description={`「${selectedCompany?.name}」を削除してもよろしいですか？`}
-      />
     </>
   )
 }
