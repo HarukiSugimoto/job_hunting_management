@@ -192,7 +192,7 @@ export interface components {
             link: string;
             login_id: string;
             type: string;
-            pritority: number;
+            priority: number;
             company_id: number;
             user_id: number;
         };
