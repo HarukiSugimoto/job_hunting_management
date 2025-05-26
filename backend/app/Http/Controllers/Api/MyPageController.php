@@ -2,10 +2,14 @@
 
 namespace App\Http\Controllers\Api;
 
+use App\Enum\Priority;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\MyPageRequest;
+use App\Http\Resources\CompanyResource;
 use App\Http\Resources\MyPageResource;
+use App\Http\Resources\PriorityResource;
+use App\Models\Company;
 use App\Models\MyPage;
 
 class MyPageController extends Controller
@@ -20,6 +24,13 @@ class MyPageController extends Controller
         $myPages = auth()->user()->mypages();
 
         return MyPageResource::collection($myPages);
+    }
+
+    public function create()
+    {
+        $priorities = PriorityResource::collection(Priority::toArray());
+        $companys = CompanyResource::collection(Company::all());
+        return response()->json(['priorities' => $priorities, 'companys' => $companys], 200);
     }
 
     public function store(MyPageRequest $request)

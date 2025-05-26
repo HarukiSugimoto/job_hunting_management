@@ -37,6 +37,7 @@ Route::middleware(['auth:sanctum'])->group(function () {
         'prefix' => '/mypage',
         'as' => 'mypage.'], function () {
             Route::get('/', [MyPageController::class, 'index'])->name('index');
+            Route::get('/create', [MyPageController::class, 'create'])->name('create');
             Route::post('/', [MyPageController::class, 'store'])->name('store');
             Route::get('/{mypage}', [MyPageController::class, 'show'])->name('show');
             Route::put('/{mypage}', [MyPageController::class, 'update'])->name('update');

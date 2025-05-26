@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use App\Enum\Priority;
 
 class MyPage extends Model
 {
@@ -11,6 +12,10 @@ class MyPage extends Model
         'login_id',
         'pritority',
         'type'
+    ];
+
+    protected $casts = [
+        'pritority' => Priority::class,
     ];
     public function company()
     {
