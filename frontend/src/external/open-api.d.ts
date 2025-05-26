@@ -139,6 +139,22 @@ export interface paths {
         patch?: never;
         trace?: never;
     };
+    "/mypage/create": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get: operations["mypage.create"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
     "/mypage/{mypage}": {
         parameters: {
             query?: never;
@@ -194,7 +210,6 @@ export interface components {
             type: string;
             priority: number;
             company_id: number;
-            user_id: number;
         };
         /** MyPageResource */
         MyPageResource: {
@@ -204,6 +219,11 @@ export interface components {
             priority: number;
             type: string;
             company?: components["schemas"]["CompanyResource"];
+        };
+        /** PriorityResource */
+        PriorityResource: {
+            value: number;
+            label: string;
         };
         /** UserResource */
         UserResource: {
@@ -616,6 +636,29 @@ export interface operations {
             401: components["responses"]["AuthenticationException"];
             403: components["responses"]["AuthorizationException"];
             422: components["responses"]["ValidationException"];
+        };
+    };
+    "mypage.create": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        priorities: components["schemas"]["PriorityResource"][];
+                        companies: components["schemas"]["CompanyResource"][];
+                    };
+                };
+            };
+            401: components["responses"]["AuthenticationException"];
         };
     };
     "mypage.show": {

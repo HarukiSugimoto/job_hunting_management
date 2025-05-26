@@ -23,23 +23,21 @@ export const useMyPageCreateForm = (option?: {
   const navigate = useNavigate();
   const { clearSwrCacheByPath } = useClearSwrCacheByPath();
   const formSchema: ZodSchema<FormParams> = z.object({
-    company_id: z.number(),
-    type: z.string(),
-    priority: z.number(),
-    login_id: z.string(),
-    link: z.string(),
-    user_id: z.number()
+    company_id: z.number().min(0, { message: formErrorMessages.required }),
+    type: z.string().min(1, { message: formErrorMessages.required }),
+    priority: z.number().min(0, { message: formErrorMessages.required }),
+    login_id: z.string().min(1, { message: formErrorMessages.required }),
+    link: z.string().min(1, { message: formErrorMessages.required }),
   });
-
   const mypageCreateForm = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     defaultValues: {
-      company_id: undefined,
+      company_id: -1,
       type: '',
-      priority: undefined,
-      login_id: undefined,
+      priority: -1,
+      login_id: '',
       link: '',
-      },
+    },
     mode: 'onBlur',
   });
 
