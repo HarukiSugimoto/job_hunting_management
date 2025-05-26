@@ -15,7 +15,7 @@ class PriorityResource extends JsonResource
     public function toArray(Request $request): array
     {
         return [
-            'value' => $this->value,
+            'value' => (int)$this->value,
             'label' => $this->label,
         ];
     }

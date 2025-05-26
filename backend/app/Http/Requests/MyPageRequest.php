@@ -27,7 +27,6 @@ class MyPageRequest extends FormRequest
             'type' => ['required', 'string'],
             'priority' => ['required', 'integer'],
             'company_id' => ['required', 'integer'],
-            'user_id' => ['required', 'integer'],
         ];
     }
 

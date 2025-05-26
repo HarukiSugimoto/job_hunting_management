@@ -29,8 +29,8 @@ class MyPageController extends Controller
     public function create()
     {
         $priorities = PriorityResource::collection(Priority::toArray());
-        $companys = CompanyResource::collection(Company::all());
-        return response()->json(['priorities' => $priorities, 'companys' => $companys], 200);
+        $companies = CompanyResource::collection(Company::all());
+        return response()->json(['priorities' => $priorities, 'companies' => $companies], 200);
     }
 
     public function store(MyPageRequest $request)
