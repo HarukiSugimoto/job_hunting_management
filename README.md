@@ -7,6 +7,9 @@
 - 求人応募とそのステータスの管理
 - 面接スケジュールやメモの追跡
 - 企業情報や連絡先の保存
+```shell
+$ npx openapi-typescript http://localhost:8000/docs/api.json --output src/external/open-api.d.ts
+```
 
 ## 使用技術
 
