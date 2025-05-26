@@ -19,7 +19,7 @@ enum Priority: int
     public static function toArray(): array
     {
         return array_map(
-            fn($case) => ['value' => $case->value, 'label' => $case->label()],
+            fn($case) => (object)['value' => $case->value, 'label' => $case->label()],
             self::cases()
         );
     }

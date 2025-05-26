@@ -11,7 +11,7 @@ Route::get('/', function () {
     return response()->json(['message' => 'Welcome to the API!']);
 });
 
-Route::middleware(['auth:sanctum'])->group(function () {
+Route::middleware([])->group(function () {
     Route::get('/me', [MeController::class, 'index'])->name('me');
     Route::group([
         'prefix' => '/company',
