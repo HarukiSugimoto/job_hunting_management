@@ -15,7 +15,7 @@ class MyPage extends Model
     ];
 
     protected $casts = [
-        'pritority' => Priority::class,
+        'priority' => Priority::class,
     ];
     public function company()
     {
