@@ -5,7 +5,6 @@ import { AdminApiComponents } from '@/external';
 import { SLDataList } from '@/sakura-like-ui/components/mui/SLDataList';
 import type { SLDataTableColumn } from '@/sakura-like-ui/components/mui/SLDataTable';
 import { Link } from 'react-router-dom';
-import { DeleteConfirmDialog } from '@/components/common/DeleteConfirmDialog';
 import { useCompanyDelete } from '@/hooks/domain/(authenticated)/company/useCompanyDelete';
 import { useCustomConfirm } from '@/sakura-like-ui/hooks/CustomConfirm';
 
