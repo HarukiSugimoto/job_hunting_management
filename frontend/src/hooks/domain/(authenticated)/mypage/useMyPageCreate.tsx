@@ -57,7 +57,6 @@ export const useMyPageCreateForm = (option?: {
         option.submitSuccessCallback();
       }
     } else {
-      console.log(response);
       notifications.show(notificationMessages.error, {
         severity: 'error',
       });
