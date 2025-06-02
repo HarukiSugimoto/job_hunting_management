@@ -13,6 +13,7 @@ import { MyPagesPage } from '@/app/(authenticated)/mypages/page';
 import { CompanyNewPage } from '@/app/(authenticated)/companys/new/page';
 import { CompanyEditPage } from '@/app/(authenticated)/companys/edit/page';
 import { MyPageNewPage } from '@/app/(authenticated)/mypages/new/page';
+import { MyPageEditPage } from '@/app/(authenticated)/mypages/edit/page';
 
 /**
  * ログイン認証が必要なページのルーティング情報
@@ -67,6 +68,10 @@ export const routesAuthenticated: RouteObject = {
         {
           path: 'new',
           element: <MyPageNewPage />,
+        },
+        {
+          path: ':mypageId/edit',
+          element: <MyPageEditPage />,
         }
       ]
     }

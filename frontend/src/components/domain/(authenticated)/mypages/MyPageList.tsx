@@ -6,6 +6,7 @@ import { SLDataList } from '@/sakura-like-ui/components/mui/SLDataList';
 import type { SLDataTableColumn } from '@/sakura-like-ui/components/mui/SLDataTable';
 import { useCustomConfirm } from '@/sakura-like-ui/hooks/CustomConfirm';
 import { useMyPageDelete } from '@/hooks/domain/(authenticated)/mypage/useMyPageDelete';
+import { Link } from 'react-router-dom';
 
 const priorityLabel = (priority: number) => {
   switch (priority) {
@@ -87,9 +88,7 @@ export const MyPageList: React.FC<MyPageListProps> = (props) => {
           <>
             <Stack direction={"row"}>
 
-              <Button color="primary">
-                編集
-              </Button>
+              <Button href={`/mypages/${mypage.id}/edit`}>編集</Button>
               <Button color="error" onClick={() => deleteConfirm(mypage)}>
                 削除
               </Button>

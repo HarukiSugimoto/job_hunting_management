@@ -1,4 +1,5 @@
 import { AdminApiComponents } from '@/external';
+import { mockCompanyResource } from './CompanyResource';
 
 const mockMyPagePatterns: AdminApiComponents['schemas']['MyPageResource'][] = [
   { 
@@ -7,7 +8,7 @@ const mockMyPagePatterns: AdminApiComponents['schemas']['MyPageResource'][] = [
     login_id: '1xxxx1', 
     priority: 1, 
     type: "エンジニア",
-    company: { id: 1, name: '株式会社oo' }, 
+    company: mockCompanyResource[0], 
   },
   { 
     id: 2, 
@@ -15,7 +16,7 @@ const mockMyPagePatterns: AdminApiComponents['schemas']['MyPageResource'][] = [
     login_id: '1xxxx1', 
     priority: 0, 
     type: "営業",
-    company: { id: 1, name: '株式会社xx' }, 
+    company: mockCompanyResource[1], 
   },
   { 
     id: 3, 
@@ -23,7 +24,7 @@ const mockMyPagePatterns: AdminApiComponents['schemas']['MyPageResource'][] = [
     login_id: '1xxxx1', 
     priority: 2, 
     type: "コンサル",
-    company: { id: 1, name: '株式会社gg' }, 
+    company: mockCompanyResource[2], 
   },
 ];
 

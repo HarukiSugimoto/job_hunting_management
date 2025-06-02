@@ -695,7 +695,7 @@ export interface operations {
             query?: never;
             header?: never;
             path: {
-                mypage: string;
+                mypage: number;
             };
             cookie?: never;
         };

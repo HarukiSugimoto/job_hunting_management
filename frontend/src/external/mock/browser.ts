@@ -17,6 +17,8 @@ import { deleteCompanysHandler } from './handlers/deleteCompanysHandler';
 import { getMyPagesCreateHandler } from './handlers/getMyPagesCreateHandler';
 import { postMyPagesHandler } from './handlers/postMyPagesHandler';
 import { deleteMyPageHandler } from './handlers/deleteMyPageHandler';
+import { getMyPageDetailHandler } from './handlers/getMyPageDetailHandler';
+import { putMyPageHandler } from './handlers/putMyPageHandler';
 
 const apiDelay = Number(getEnv('API_REQUEST_DELAY_MS'));
 
@@ -45,7 +47,9 @@ const handlers = [
   getMyPagesHandler,
   getMyPagesCreateHandler,
   postMyPagesHandler,
-  deleteMyPageHandler
+  deleteMyPageHandler,
+  getMyPageDetailHandler,
+  putMyPageHandler
 
 ];
 
